@@ -25,7 +25,7 @@ class PhonebookAppDictionary {
             System.out.println("6. Exit.");
 
             int choice = inp.nextInt();
-            inp.nextLine(); // Consume the leftover newline
+            inp.nextLine();
 
             System.out.println();
 
@@ -36,7 +36,7 @@ class PhonebookAppDictionary {
 
                     System.out.println("Please, enter the phone number of the new contact.");
                     phone = inp.nextInt();
-                    inp.nextLine(); // Consume the leftover newline
+                    inp.nextLine(); 
                     d.put(name1, phone);
                     break;
 
@@ -56,7 +56,7 @@ class PhonebookAppDictionary {
 
                     System.out.println("Please, enter the updated phone number.");
                     phone = inp.nextInt();
-                    inp.nextLine(); // Consume the leftover newline
+                    inp.nextLine(); 
                     d.put(name2, phone);
                     break;
 
@@ -89,6 +89,5 @@ class PhonebookAppDictionary {
                     System.out.println("Invalid choice. Please select a number from the menu.");
             }
         }
-        inp.close();
     }
 }
