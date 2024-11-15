@@ -5,15 +5,14 @@ import java.util.Scanner;
 
 class PhonebookAppDictionary {
     public static void main(String[] args) {
-        Dictionary<String, Integer> d = new Hashtable<>();
+        Dictionary<String, String> d = new Hashtable<>();
 
         System.out.println("Welcome to the Contact List Phonebook Application! Please, select an item from the menu to proceed.");
 
         Scanner inp = new Scanner(System.in);
         boolean isbr = false;
 
-        String name1, name2;
-        Integer phone;
+        String name1, name2, phone;
 
         while (!isbr) {
             System.out.println("_________________________________");
@@ -32,31 +31,29 @@ class PhonebookAppDictionary {
             switch (choice) {
                 case 1:
                     System.out.println("Please, enter the name of the new contact.");
-                    name1 = inp.nextLine();
+                    name1 = inp.nextLine().toLowerCase();
 
                     System.out.println("Please, enter the phone number of the new contact.");
-                    phone = inp.nextInt();
-                    inp.nextLine(); 
+                    phone = inp.nextLine();
                     d.put(name1, phone);
                     break;
 
                 case 2:
                     System.out.println("Please, enter the name of the person whose contact you'd like to delete.");
-                    name1 = inp.nextLine();
+                    name1 = inp.nextLine().toLowerCase();
                     d.remove(name1);
                     break;
 
                 case 3:
                     System.out.println("Please, enter the name of the person whose contact you'd like to change.");
-                    name1 = inp.nextLine();
+                    name1 = inp.nextLine().toLowerCase();
                     d.remove(name1);
 
                     System.out.println("Please, enter the updated name.");
-                    name2 = inp.nextLine();
+                    name2 = inp.nextLine().toLowerCase();
 
                     System.out.println("Please, enter the updated phone number.");
-                    phone = inp.nextInt();
-                    inp.nextLine(); 
+                    phone = inp.nextLine();
                     d.put(name2, phone);
                     break;
 
@@ -71,8 +68,8 @@ class PhonebookAppDictionary {
 
                 case 5:
                     System.out.println("Please, enter the name of the person whose phone number you'd like to display.");
-                    name1 = inp.nextLine();
-                    Integer contactNumber = d.get(name1);
+                    name1 = inp.nextLine().toLowerCase();
+                    String contactNumber = d.get(name1);
                     if (contactNumber != null) {
                         System.out.println(name1 + "'s phone number is: " + contactNumber);
                     } else {
@@ -89,5 +86,6 @@ class PhonebookAppDictionary {
                     System.out.println("Invalid choice. Please select a number from the menu.");
             }
         }
+        inp.close();
     }
 }
